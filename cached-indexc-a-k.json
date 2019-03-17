@@ -1,0 +1,1199 @@
+  <html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="icon" href="https://www.w3schools.com/tags/demo_icon.gif" type="image/gif" sizes="16x16">
+<link rel="stylesheet" type="text/css" href="views/videoDetail/mystyle.css">
+  <!-- Bootstrap v4.x stylesheet -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+	<!-- bootstrap css theme -->
+	<link rel="stylesheet" href="https://mottie.github.io/tablesorter/docs/css/bootstrap-v4.min.css">
+
+	<script src="https://mottie.github.io/tablesorter/docs/js/jquery-latest.min.js"></script>
+	<script src="https://mottie.github.io/tablesorter/js/jquery.tablesorter.js"></script>
+	<script src="https://mottie.github.io/tablesorter/js/jquery.tablesorter.widgets.js"></script>
+
+	<!-- pager plugin -->
+	<link rel="stylesheet" href="https://mottie.github.io/tablesorter/addons/pager/jquery.tablesorter.pager.css">
+	<script src="https://mottie.github.io/tablesorter/addons/pager/jquery.tablesorter.pager.js"></script>
+	<style>
+	.tablesorter-pager .btn-group-sm .btn {
+	  font-size: 1.2em; /* make pager arrows more visible */
+	}
+	</style>
+  <script>
+  $(function() {
+
+  $("table").tablesorter({
+    theme : "bootstrap",
+
+    widthFixed: true,
+
+    // widget code contained in the jquery.tablesorter.widgets.js file
+    // use the zebra stripe widget if you plan on hiding any rows (filter widget)
+    // the uitheme widget is NOT REQUIRED!
+    widgets : [ "filter", "columns", "zebra" ],
+
+    widgetOptions : {
+      // using the default zebra striping class name, so it actually isn't included in the theme variable above
+      // this is ONLY needed for bootstrap theming if you are using the filter widget, because rows are hidden
+      zebra : ["even", "odd"],
+
+      // class names added to columns when sorted
+      columns: [ "primary", "secondary", "tertiary" ],
+
+      // reset filters button
+      filter_reset : ".reset",
+
+      // extra css class name (string or array) added to the filter element (input or select)
+      filter_cssFilter: [
+        'form-control',
+        'form-control',
+        'form-control custom-select', // select needs custom class names :(
+        'form-control',
+        'form-control',
+        'form-control',
+        'form-control'
+      ]
+
+    }
+  })
+  .tablesorterPager({
+
+    // target the pager markup - see the HTML block below
+    container: $(".ts-pager"),
+
+    // target the pager page select dropdown - choose a page
+    cssGoto  : ".pagenum",
+
+    // remove rows from the table to speed up the sort of large tables.
+    // setting this to false, only hides the non-visible rows; needed if you plan to add/remove rows with the pager enabled.
+    removeRows: false,
+
+    // output string - default is '{page}/{totalPages}';
+    // possible variables: {page}, {totalPages}, {filteredPages}, {startRow}, {endRow}, {filteredRows} and {totalRows}
+    output: '{startRow} - {endRow} / {filteredRows} ({totalRows})'
+
+  });
+
+});
+  </script>  <title>Home</title>
+
+</head>
+<body>
+
+<div class="contentItem">
+	<div class="dropdown">
+       <a href="/v2/admin/"><button class="dropbtn">Home page</button></a>
+       <div class="dropdown-content">
+          <a href="?c=listDetail&a=getAllWithView&k=1">get All ListDetail</a>
+          <a title="Them list videos moi" target="_blank" href="youtube/">Add New</a>
+          <a title="Xoa trung lap video + listDetail" target="_blank" href="removeDuplicate.php">Remove Duplicate</a>
+          <a title="Them list videos moi" target="_blank" href="/v2/log/show.php">Log</a>
+      </div>
+  </div>
+  <div class="dropdown">
+   <a title="Them list videos moi" target="_blank" href="youtube/"><button class="dropbtn">Add New By Youtube</button></a>
+  </div>
+
+<div class="dropdown">
+   <a title="Tao Cache + remove cac videos va list bi trung lap" target="_blank" href="gen-cache.php"><button class="dropbtn">Gen cache</button></a>
+
+   <div class="dropdown-content">
+    <a title="Check videos playable, Khong nen thuc hien nhieu neu ko se bi khoa IP. Tuy vao DB co the chay mat 15p hoac hon" target="_blank" href="check-videos.php">Check Video playable(co the phai doi >15p)</a>
+</div>
+</div>
+
+<div class="dropdown">
+   <button class="dropbtn">get All VideosDetail</button>
+   <div class="dropdown-content">
+      <a href="?c=videoDetail&a=getAllWithView&k=0">get All VideosDetail(>10s)</a>
+      <a href="#">Add New</a>
+      <a href="#">Remove</a>
+  </div>
+</div>
+<div class="dropdown">
+   <button class="dropbtn">Xep theo CategoryID</button>
+   <div class="dropdown-content">
+      <a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=1> 1 Nové video (0)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=3> 3 Začátečníci (6)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=4> 4 poslouchat (4)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=5> 5 gramatika (5)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=6> 6 Zásoba slov (5)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=7> 7 čtení (4)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=8> 8 Písmeno (2)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=9> 9 Výslovnost (5)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=10> 10 Mluvení (5)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=11> 11 Zkoušky (5)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=12> 12 písničky české (4)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=13> 13 český film (5)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=14> 14 český pro děti (6)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=16> 16 studium v češtině (2)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=17> 17 Život v ruštině (4)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=19> 19 Koupit (4)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=20> 20 jídlo (5)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=23> 23 Sledováno (0)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=27> 27 konverzace (5)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=28> 28 Cestování (5)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=30> 30 Kurz (6)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=31> 31 Historie (4)</a></div>
+</div>
+
+<div class="dropdown">
+   <button class="dropbtn">Xep theo so luong List tang dan</button>
+   <div class="dropdown-content">
+      <a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=1> 1 Nové video (0)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=23> 23 Sledováno (0)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=8> 8 Písmeno (2)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=16> 16 studium v češtině (2)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=4> 4 poslouchat (4)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=7> 7 čtení (4)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=12> 12 písničky české (4)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=17> 17 Život v ruštině (4)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=19> 19 Koupit (4)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=31> 31 Historie (4)</a></div>
+</div>
+
+<div class="dropdown">
+   <button class="dropbtn">Xep theo so luong List giam dan</button>
+   <div class="dropdown-content">
+      <a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=3> 3 Začátečníci (6)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=14> 14 český pro děti (6)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=30> 30 Kurz (6)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=5> 5 gramatika (5)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=6> 6 Zásoba slov (5)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=9> 9 Výslovnost (5)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=10> 10 Mluvení (5)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=11> 11 Zkoušky (5)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=13> 13 český film (5)</a><a href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=20> 20 jídlo (5)</a></div>
+</div>
+<br/>
+<a title='Có 0 list trong category nay 'href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=1> 1 new_videos L(0)</a> |<a title='Có 6 list trong category nay 'href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=3> 3 beginnners L(6)</a> |<a title='Có 4 list trong category nay 'href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=4> 4 listening L(4)</a> |<a title='Có 5 list trong category nay 'href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=5> 5 gramar L(5)</a> |<a title='Có 5 list trong category nay 'href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=6> 6 vocabulary L(5)</a> |<a title='Có 4 list trong category nay 'href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=7> 7 reading L(4)</a> |<a title='Có 2 list trong category nay 'href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=8> 8 writing L(2)</a> |<a title='Có 5 list trong category nay 'href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=9> 9 pronunciation L(5)</a> |<a title='Có 5 list trong category nay 'href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=10> 10 speaking L(5)</a> |<a title='Có 5 list trong category nay 'href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=11> 11 exams L(5)</a> |<a title='Có 4 list trong category nay 'href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=12> 12 songs L(4)</a> |<a title='Có 5 list trong category nay 'href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=13> 13 film L(5)</a> |<a title='Có 6 list trong category nay 'href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=14> 14 kids L(6)</a> |<a title='Có 2 list trong category nay 'href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=16> 16 study L(2)</a> |<a title='Có 4 list trong category nay 'href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=17> 17 czech L(4)</a> |<a title='Có 4 list trong category nay 'href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=19> 19 shopping L(4)</a> |<a title='Có 5 list trong category nay 'href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=20> 20 food L(5)</a> |<a title='Có 0 list trong category nay 'href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=23> 23 watched L(0)</a> |<a title='Có 5 list trong category nay 'href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=27> 27 conversation L(5)</a> |<a title='Có 5 list trong category nay 'href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=28> 28 travel L(5)</a> |<a title='Có 6 list trong category nay 'href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=30> 30 course L(6)</a> |<a title='Có 4 list trong category nay 'href=?c=listDetail&a=getByCategoryIDWithCountWithView&k=31> 31 story L(4)</a> |<br/>Số lượng Videos trong DB: 1385 Videos<br/>Số lượng Videos trong DB: 91 Videos</div>
+
+
+<form method="get" style="margin-left: 100px;" >
+	<input type="text" name="kw" value="" placeholder="search here">
+	<input type="submit" name="submit" value="search name videos">
+</form>
+
+
+<form method="get" style="margin-left: 100px;" >
+	<input type="text" name="kwl" value="" placeholder="search name List here">
+	<input type="submit" name="submit" value="search name List videos">
+</form><br/>
+<h1>Home</h1>
+
+
+<table class="table table-bordered table-striped">
+  <thead> <!-- add class="thead-inverse" for a dark header -->
+    <tr>
+      <th>stt</th>
+      <th>Image</th>
+      <th>Name</th>
+      <th>CategoryID</th>
+      <th>ListVideo count</th>
+      <th>Add More List to this Category</th>
+      <th>Xoa</th>
+	</tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <th>stt</th>
+      <th>Image</th>
+      <th>Name</th>
+	  <th>CategoryID</th>
+      <th>ListVideo count</th>
+      <th>Add More List to this Category</th>
+      <th>Xoa</th>
+    </tr>
+    <tr>
+      <th colspan="7" class="ts-pager">
+        <div class="form-inline">
+          <div class="btn-group btn-group-sm mx-1" role="group">
+            <button type="button" class="btn btn-secondary first" title="first">⇤</button>
+            <button type="button" class="btn btn-secondary prev" title="previous">←</button>
+          </div>
+          <span class="pagedisplay"></span>
+          <div class="btn-group btn-group-sm mx-1" role="group">
+            <button type="button" class="btn btn-secondary next" title="next">→</button>
+            <button type="button" class="btn btn-secondary last" title="last">⇥</button>
+          </div>
+          <select class="form-control-sm custom-select px-1 pagesize" title="Select page size">
+            <option selected="selected" value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="all">All Rows</option>
+          </select>
+          <select class="form-control-sm custom-select px-4 mx-1 pagenum" title="Select page number"></select>
+        </div>
+      </th>
+    </tr>
+  </tfoot>
+  <tbody>
+	
+   <tr>
+      <td>109</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLE5616C6C533A3AC1" title="Pelíšky"><img width="100px" src="https://i.ytimg.com/vi/vlfO3aYdg50/mqdefault.jpg" alt="Pelíšky"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLE5616C6C533A3AC1" title="Pelíšky">Pelíšky</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=13" title="see 13">13</a></td>
+	  <td>6</td>
+      <td><a target="_blank" href="youtube/?CategoryID=13" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLE5616C6C533A3AC1" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>108</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLLN03eN6v5PKUTQKoRF8ZOb1_9MdBx_yQ" title="O princezne ktera rackovala pohádka CZ 1986 arc"><img width="100px" src="https://i.ytimg.com/vi/OjcvjUGa-_s/mqdefault.jpg" alt="O princezne ktera rackovala pohádka CZ 1986 arc"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLLN03eN6v5PKUTQKoRF8ZOb1_9MdBx_yQ" title="O princezne ktera rackovala pohádka CZ 1986 arc">O princezne ktera rackovala pohádka CZ 1986 arc</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=13" title="see 13">13</a></td>
+	  <td>13</td>
+      <td><a target="_blank" href="youtube/?CategoryID=13" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLLN03eN6v5PKUTQKoRF8ZOb1_9MdBx_yQ" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>107</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLI9wPU1vWRRXA4K6STer-aKjpKQXIutH5" title="Tomorrow Ill Get Up And Scald Myself With Tea"><img width="100px" src="https://i.ytimg.com/vi/tVBPNfKfgNo/mqdefault.jpg" alt="Tomorrow Ill Get Up And Scald Myself With Tea"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLI9wPU1vWRRXA4K6STer-aKjpKQXIutH5" title="Tomorrow Ill Get Up And Scald Myself With Tea">Tomorrow Ill Get Up And Scald Myself With Tea</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=13" title="see 13">13</a></td>
+	  <td>5</td>
+      <td><a target="_blank" href="youtube/?CategoryID=13" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLI9wPU1vWRRXA4K6STer-aKjpKQXIutH5" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>104</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLGquVFH8nHePv56tRLR8jTrnRVQQpargA" title="CESTA Z MĚSTA - Celý film HD - OUT OF CITY (English Subtitles)"><img width="100px" src="https://i.ytimg.com/vi/F1CCdFPh7hA/mqdefault.jpg" alt="CESTA Z MĚSTA - Celý film HD - OUT OF CITY (English Subtitles)"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLGquVFH8nHePv56tRLR8jTrnRVQQpargA" title="CESTA Z MĚSTA - Celý film HD - OUT OF CITY (English Subtitles)">CESTA Z MĚSTA - Celý film HD - OUT OF CITY (English Subtitles)</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=13" title="see 13">13</a></td>
+	  <td>2</td>
+      <td><a target="_blank" href="youtube/?CategoryID=13" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLGquVFH8nHePv56tRLR8jTrnRVQQpargA" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>103</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLRPr13fYaaAYxe8lLTElXYchv-KHRhC2I" title="Czech guy Trying to Pronounce 10 Hard English Words for Foreigners"><img width="100px" src="https://i.ytimg.com/vi/WKXEtMLboGo/mqdefault.jpg" alt="Czech guy Trying to Pronounce 10 Hard English Words for Foreigners"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLRPr13fYaaAYxe8lLTElXYchv-KHRhC2I" title="Czech guy Trying to Pronounce 10 Hard English Words for Foreigners">Czech guy Trying to Pronounce 10 Hard English Words for Foreigners</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=30" title="see 30">30</a></td>
+	  <td>3</td>
+      <td><a target="_blank" href="youtube/?CategoryID=30" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLRPr13fYaaAYxe8lLTElXYchv-KHRhC2I" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>102</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL_ZaoKjU6eoAE72IbIUwtrc8iphQ__Je-" title="Čiperkové - Žížala"><img width="100px" src="https://i.ytimg.com/vi/Ywmj6-48TKI/mqdefault.jpg" alt="Čiperkové - Žížala"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL_ZaoKjU6eoAE72IbIUwtrc8iphQ__Je-" title="Čiperkové - Žížala">Čiperkové - Žížala</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=30" title="see 30">30</a></td>
+	  <td>12</td>
+      <td><a target="_blank" href="youtube/?CategoryID=30" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PL_ZaoKjU6eoAE72IbIUwtrc8iphQ__Je-" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>101</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLOynvVewg9sNSEMhcmPwNUETTcs7h2tuP" title="Foreigners medical insurance MaxMedical 2018 - Czech language"><img width="100px" src="https://i.ytimg.com/vi/gIEXEXI-ycU/mqdefault.jpg" alt="Foreigners medical insurance MaxMedical 2018 - Czech language"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLOynvVewg9sNSEMhcmPwNUETTcs7h2tuP" title="Foreigners medical insurance MaxMedical 2018 - Czech language">Foreigners medical insurance MaxMedical 2018 - Czech language</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=30" title="see 30">30</a></td>
+	  <td>8</td>
+      <td><a target="_blank" href="youtube/?CategoryID=30" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLOynvVewg9sNSEMhcmPwNUETTcs7h2tuP" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>100</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL2r1qxxub8gXEqew_CO9Ub-_h4YJ5Nx7n" title="Why learning Czech can be hard"><img width="100px" src="https://i.ytimg.com/vi/KBrdoonGRI4/mqdefault.jpg" alt="Why learning Czech can be hard"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL2r1qxxub8gXEqew_CO9Ub-_h4YJ5Nx7n" title="Why learning Czech can be hard">Why learning Czech can be hard</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=30" title="see 30">30</a></td>
+	  <td>3</td>
+      <td><a target="_blank" href="youtube/?CategoryID=30" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PL2r1qxxub8gXEqew_CO9Ub-_h4YJ5Nx7n" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>99</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLTa2favOD7bCw80hqe3_tH3e8bjbF5JDP" title="Dobrý den (Good day)"><img width="100px" src="https://i.ytimg.com/vi/tf3Er5-6ptA/mqdefault.jpg" alt="Dobrý den (Good day)"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLTa2favOD7bCw80hqe3_tH3e8bjbF5JDP" title="Dobrý den (Good day)">Dobrý den (Good day)</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=30" title="see 30">30</a></td>
+	  <td>31</td>
+      <td><a target="_blank" href="youtube/?CategoryID=30" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLTa2favOD7bCw80hqe3_tH3e8bjbF5JDP" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>98</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLzX3AcU6y30-KuIcFxPkiDxh4yWmhbYzK" title="Czech Language Training - Víte jak se řekne česky Weather Forecast?"><img width="100px" src="https://i.ytimg.com/vi/iwNtKtxkKT8/mqdefault.jpg" alt="Czech Language Training - Víte jak se řekne česky Weather Forecast?"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLzX3AcU6y30-KuIcFxPkiDxh4yWmhbYzK" title="Czech Language Training - Víte jak se řekne česky Weather Forecast?">Czech Language Training - Víte jak se řekne česky Weather Forecast?</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=30" title="see 30">30</a></td>
+	  <td>5</td>
+      <td><a target="_blank" href="youtube/?CategoryID=30" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLzX3AcU6y30-KuIcFxPkiDxh4yWmhbYzK" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>97</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLQNGT86i_O9uhef17nAcfZq9ThvU_pc4i" title="Módní trendy | LÉTO 2017"><img width="100px" src="https://i.ytimg.com/vi/xnPu8aPlOYM/mqdefault.jpg" alt="Módní trendy | LÉTO 2017"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLQNGT86i_O9uhef17nAcfZq9ThvU_pc4i" title="Módní trendy | LÉTO 2017">Módní trendy | LÉTO 2017</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=19" title="see 19">19</a></td>
+	  <td>7</td>
+      <td><a target="_blank" href="youtube/?CategoryID=19" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLQNGT86i_O9uhef17nAcfZq9ThvU_pc4i" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>96</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLOADwv7eEruZlBY1vOVQm6GAiiOyO0n5H" title="???? JAK NAKUPOVAT V PRIMARKU ????"><img width="100px" src="https://i.ytimg.com/vi/86b0zN9Gt10/mqdefault.jpg" alt="???? JAK NAKUPOVAT V PRIMARKU ????"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLOADwv7eEruZlBY1vOVQm6GAiiOyO0n5H" title="???? JAK NAKUPOVAT V PRIMARKU ????">???? JAK NAKUPOVAT V PRIMARKU ????</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=19" title="see 19">19</a></td>
+	  <td>3</td>
+      <td><a target="_blank" href="youtube/?CategoryID=19" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLOADwv7eEruZlBY1vOVQm6GAiiOyO0n5H" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>95</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL9bbn-D_9Uz3A6rdbhIJrBBDiEWvIyGL0" title="NAKUPUJU VĚCI NA PÁRTY ZA 100 KČ! ????"><img width="100px" src="https://i.ytimg.com/vi/59u9WFK5U_o/mqdefault.jpg" alt="NAKUPUJU VĚCI NA PÁRTY ZA 100 KČ! ????"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL9bbn-D_9Uz3A6rdbhIJrBBDiEWvIyGL0" title="NAKUPUJU VĚCI NA PÁRTY ZA 100 KČ! ????">NAKUPUJU VĚCI NA PÁRTY ZA 100 KČ! ????</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=19" title="see 19">19</a></td>
+	  <td>4</td>
+      <td><a target="_blank" href="youtube/?CategoryID=19" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PL9bbn-D_9Uz3A6rdbhIJrBBDiEWvIyGL0" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>94</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLar6A6Tp7_f4hWkcp_X-rP5WtTxUah1dP" title="How much is it?"><img width="100px" src="https://i.ytimg.com/vi/vEjpp8kgnZc/mqdefault.jpg" alt="How much is it?"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLar6A6Tp7_f4hWkcp_X-rP5WtTxUah1dP" title="How much is it?">How much is it?</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=19" title="see 19">19</a></td>
+	  <td>24</td>
+      <td><a target="_blank" href="youtube/?CategoryID=19" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLar6A6Tp7_f4hWkcp_X-rP5WtTxUah1dP" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>93</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLWt-2MnzMMaXPu_B3Cj78BxVjrhDfqZVX" title="TOP 5 ŠKOLY, VE KTERÝCH NECHCETE ZMEŠKAT ANI HODINU"><img width="100px" src="https://i.ytimg.com/vi/tGN1jOJCBaA/mqdefault.jpg" alt="TOP 5 ŠKOLY, VE KTERÝCH NECHCETE ZMEŠKAT ANI HODINU"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLWt-2MnzMMaXPu_B3Cj78BxVjrhDfqZVX" title="TOP 5 ŠKOLY, VE KTERÝCH NECHCETE ZMEŠKAT ANI HODINU">TOP 5 ŠKOLY, VE KTERÝCH NECHCETE ZMEŠKAT ANI HODINU</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=17" title="see 17">17</a></td>
+	  <td>45</td>
+      <td><a target="_blank" href="youtube/?CategoryID=17" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLWt-2MnzMMaXPu_B3Cj78BxVjrhDfqZVX" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>92</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLnezJnWMKBkNHWCfex60uW5aWA9fWQYnJ" title="Černé divadlo HILT na 8. divadelní olympiádě v Indii"><img width="100px" src="https://i.ytimg.com/vi/S0U3FYOYqIg/mqdefault.jpg" alt="Černé divadlo HILT na 8. divadelní olympiádě v Indii"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLnezJnWMKBkNHWCfex60uW5aWA9fWQYnJ" title="Černé divadlo HILT na 8. divadelní olympiádě v Indii">Černé divadlo HILT na 8. divadelní olympiádě v Indii</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=17" title="see 17">17</a></td>
+	  <td>31</td>
+      <td><a target="_blank" href="youtube/?CategoryID=17" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLnezJnWMKBkNHWCfex60uW5aWA9fWQYnJ" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>91</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLETKsuIz8DQ6oLUJiA_qwYNayFC66vH18" title="Inspektor Max  Hračka"><img width="100px" src="https://i.ytimg.com/vi/sla7su4Majg/mqdefault.jpg" alt="Inspektor Max  Hračka"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLETKsuIz8DQ6oLUJiA_qwYNayFC66vH18" title="Inspektor Max  Hračka">Inspektor Max  Hračka</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=17" title="see 17">17</a></td>
+	  <td>34</td>
+      <td><a target="_blank" href="youtube/?CategoryID=17" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLETKsuIz8DQ6oLUJiA_qwYNayFC66vH18" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>90</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLEjP3nz_gaOhfe9r2j-_weI1Sapm-63ij" title="Záchranná stanice hl. m. Prahy: Zachráněná muflonka"><img width="100px" src="https://i.ytimg.com/vi/eYX05FH9Qk4/mqdefault.jpg" alt="Záchranná stanice hl. m. Prahy: Zachráněná muflonka"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLEjP3nz_gaOhfe9r2j-_weI1Sapm-63ij" title="Záchranná stanice hl. m. Prahy: Zachráněná muflonka">Záchranná stanice hl. m. Prahy: Zachráněná muflonka</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=17" title="see 17">17</a></td>
+	  <td>10</td>
+      <td><a target="_blank" href="youtube/?CategoryID=17" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLEjP3nz_gaOhfe9r2j-_weI1Sapm-63ij" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>89</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLM4rVElEmVCHbaWjVurKS-gROQ6-IDnex" title="Studio 27 - Will Hall - O zkušenostech v Praze - rozhovor"><img width="100px" src="https://i.ytimg.com/vi/jdedpcoC1PU/mqdefault.jpg" alt="Studio 27 - Will Hall - O zkušenostech v Praze - rozhovor"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLM4rVElEmVCHbaWjVurKS-gROQ6-IDnex" title="Studio 27 - Will Hall - O zkušenostech v Praze - rozhovor">Studio 27 - Will Hall - O zkušenostech v Praze - rozhovor</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=16" title="see 16">16</a></td>
+	  <td>10</td>
+      <td><a target="_blank" href="youtube/?CategoryID=16" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLM4rVElEmVCHbaWjVurKS-gROQ6-IDnex" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>88</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLYYRBJzen2aDleeUWb5fPovwe-eOwzal_" title="Vztah matematiky a fyziky - Lekce 1."><img width="100px" src="https://i.ytimg.com/vi/ZlbsMFOxDSU/mqdefault.jpg" alt="Vztah matematiky a fyziky - Lekce 1."></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLYYRBJzen2aDleeUWb5fPovwe-eOwzal_" title="Vztah matematiky a fyziky - Lekce 1.">Vztah matematiky a fyziky - Lekce 1.</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=16" title="see 16">16</a></td>
+	  <td>11</td>
+      <td><a target="_blank" href="youtube/?CategoryID=16" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLYYRBJzen2aDleeUWb5fPovwe-eOwzal_" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>86</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLOH2HRUUEIyZ-kVAuYCq5ZrJvERnJA5jA" title="Přijímací zkoušky na SŠ 2018 #36 - Přání, poděkování, prosba"><img width="100px" src="https://i.ytimg.com/vi/AErodY7pCFE/mqdefault.jpg" alt="Přijímací zkoušky na SŠ 2018 #36 - Přání, poděkování, prosba"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLOH2HRUUEIyZ-kVAuYCq5ZrJvERnJA5jA" title="Přijímací zkoušky na SŠ 2018 #36 - Přání, poděkování, prosba">Přijímací zkoušky na SŠ 2018 #36 - Přání, poděkování, prosba</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=11" title="see 11">11</a></td>
+	  <td>36</td>
+      <td><a target="_blank" href="youtube/?CategoryID=11" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLOH2HRUUEIyZ-kVAuYCq5ZrJvERnJA5jA" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>85</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL6_uIhLM55ZRF9FrHZFqzAHx02O6nm8EC" title="Přijímací zkoušky na SŠ 2018 #1 - Úvod"><img width="100px" src="https://i.ytimg.com/vi/Fw14uvkdZRQ/mqdefault.jpg" alt="Přijímací zkoušky na SŠ 2018 #1 - Úvod"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL6_uIhLM55ZRF9FrHZFqzAHx02O6nm8EC" title="Přijímací zkoušky na SŠ 2018 #1 - Úvod">Přijímací zkoušky na SŠ 2018 #1 - Úvod</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=11" title="see 11">11</a></td>
+	  <td>1</td>
+      <td><a target="_blank" href="youtube/?CategoryID=11" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PL6_uIhLM55ZRF9FrHZFqzAHx02O6nm8EC" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>84</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLF5tjsUR_yvWOtaaxXQ_bTMpwOvKViW0t" title="Den D - Příjímačky + pohovor / Jak zvládnout stres, co si vzít s sebou..."><img width="100px" src="https://i.ytimg.com/vi/b1BbJLZrNHM/mqdefault.jpg" alt="Den D - Příjímačky + pohovor / Jak zvládnout stres, co si vzít s sebou..."></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLF5tjsUR_yvWOtaaxXQ_bTMpwOvKViW0t" title="Den D - Příjímačky + pohovor / Jak zvládnout stres, co si vzít s sebou...">Den D - Příjímačky + pohovor / Jak zvládnout stres, co si vzít s sebou...</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=11" title="see 11">11</a></td>
+	  <td>12</td>
+      <td><a target="_blank" href="youtube/?CategoryID=11" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLF5tjsUR_yvWOtaaxXQ_bTMpwOvKViW0t" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>83</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLfUxHiBxhHIJHl-kAK5i6_gTanoTxLSa8" title="Informační video – zkouška z českého jazyka pro trvalý pobyt v ČR"><img width="100px" src="https://i.ytimg.com/vi/URDz72CDMbg/mqdefault.jpg" alt="Informační video – zkouška z českého jazyka pro trvalý pobyt v ČR"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLfUxHiBxhHIJHl-kAK5i6_gTanoTxLSa8" title="Informační video – zkouška z českého jazyka pro trvalý pobyt v ČR">Informační video – zkouška z českého jazyka pro trvalý pobyt v ČR</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=11" title="see 11">11</a></td>
+	  <td>49</td>
+      <td><a target="_blank" href="youtube/?CategoryID=11" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLfUxHiBxhHIJHl-kAK5i6_gTanoTxLSa8" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>82</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLK7ZeRXr__SHSw9eKkeYw7QT0B_19zYRj" title="Tajný život K.C. S01E01 Zkouška (1/6)"><img width="100px" src="https://i.ytimg.com/vi/N5bpqtvQ2Pc/mqdefault.jpg" alt="Tajný život K.C. S01E01 Zkouška (1/6)"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLK7ZeRXr__SHSw9eKkeYw7QT0B_19zYRj" title="Tajný život K.C. S01E01 Zkouška (1/6)">Tajný život K.C. S01E01 Zkouška (1/6)</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=11" title="see 11">11</a></td>
+	  <td>50</td>
+      <td><a target="_blank" href="youtube/?CategoryID=11" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLK7ZeRXr__SHSw9eKkeYw7QT0B_19zYRj" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>81</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLnx8yFsoQih3OHFTd3UfHYOtFdfqPjy1p" title="Basic Czech for tourist, part 1, useful, czech, phrases, Prague, language, greetings, in czech,"><img width="100px" src="https://i.ytimg.com/vi/Zr13AKzrWzM/mqdefault.jpg" alt="Basic Czech for tourist, part 1, useful, czech, phrases, Prague, language, greetings, in czech,"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLnx8yFsoQih3OHFTd3UfHYOtFdfqPjy1p" title="Basic Czech for tourist, part 1, useful, czech, phrases, Prague, language, greetings, in czech,">Basic Czech for tourist, part 1, useful, czech, phrases, Prague, language, greetings, in czech,</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=8" title="see 8">8</a></td>
+	  <td>5</td>
+      <td><a target="_blank" href="youtube/?CategoryID=8" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLnx8yFsoQih3OHFTd3UfHYOtFdfqPjy1p" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>78</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLBIszfA2J5gOszNFUEJmdw0GMDxEw0e9N" title="M-US1 Graphing Linear Equations (TIMSS Video)"><img width="100px" src="https://i.ytimg.com/vi/5Eg1fJ-ZpQs/mqdefault.jpg" alt="M-US1 Graphing Linear Equations (TIMSS Video)"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLBIszfA2J5gOszNFUEJmdw0GMDxEw0e9N" title="M-US1 Graphing Linear Equations (TIMSS Video)">M-US1 Graphing Linear Equations (TIMSS Video)</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=8" title="see 8">8</a></td>
+	  <td>29</td>
+      <td><a target="_blank" href="youtube/?CategoryID=8" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLBIszfA2J5gOszNFUEJmdw0GMDxEw0e9N" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>77</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLd5RMUGwfy3slr8Svs-07u6RREvk83p-P" title="FIRST DAY IN PRAGUE & PRAGUE ASTRONOMICAL CLOCK! | Daily Travel Vlog 132, Czech Republic, HD"><img width="100px" src="https://i.ytimg.com/vi/kd2-c67FOLg/mqdefault.jpg" alt="FIRST DAY IN PRAGUE & PRAGUE ASTRONOMICAL CLOCK! | Daily Travel Vlog 132, Czech Republic, HD"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLd5RMUGwfy3slr8Svs-07u6RREvk83p-P" title="FIRST DAY IN PRAGUE & PRAGUE ASTRONOMICAL CLOCK! | Daily Travel Vlog 132, Czech Republic, HD">FIRST DAY IN PRAGUE & PRAGUE ASTRONOMICAL CLOCK! | Daily Travel Vlog 132, Czech Republic, HD</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=28" title="see 28">28</a></td>
+	  <td>7</td>
+      <td><a target="_blank" href="youtube/?CategoryID=28" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLd5RMUGwfy3slr8Svs-07u6RREvk83p-P" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>76</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLUDuSYCnVh-TeBEfRM4i91UBPNK_cb2p1" title="CHEAP AND EASY! BERLIN TO PRAGUE FLIXBUS | Czech Vlog | Europe Bus"><img width="100px" src="https://i.ytimg.com/vi/gDOa5QuCn0c/mqdefault.jpg" alt="CHEAP AND EASY! BERLIN TO PRAGUE FLIXBUS | Czech Vlog | Europe Bus"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLUDuSYCnVh-TeBEfRM4i91UBPNK_cb2p1" title="CHEAP AND EASY! BERLIN TO PRAGUE FLIXBUS | Czech Vlog | Europe Bus">CHEAP AND EASY! BERLIN TO PRAGUE FLIXBUS | Czech Vlog | Europe Bus</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=28" title="see 28">28</a></td>
+	  <td>5</td>
+      <td><a target="_blank" href="youtube/?CategoryID=28" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLUDuSYCnVh-TeBEfRM4i91UBPNK_cb2p1" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>75</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLZXN11icfdC-r-74YEsUP-3BuS-ySnfwD" title="Top 5 Travel Scams to avoid in Prague, Czech Republic"><img width="100px" src="https://i.ytimg.com/vi/IeeFefHFv00/mqdefault.jpg" alt="Top 5 Travel Scams to avoid in Prague, Czech Republic"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLZXN11icfdC-r-74YEsUP-3BuS-ySnfwD" title="Top 5 Travel Scams to avoid in Prague, Czech Republic">Top 5 Travel Scams to avoid in Prague, Czech Republic</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=28" title="see 28">28</a></td>
+	  <td>14</td>
+      <td><a target="_blank" href="youtube/?CategoryID=28" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLZXN11icfdC-r-74YEsUP-3BuS-ySnfwD" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>74</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLf2IQVBwFMXP6xiCjao3YqoJRLd7ze0UV" title="Bike Touring Czech Republic - DAY 1 - Františkovy Lázně & Cheb"><img width="100px" src="https://i.ytimg.com/vi/hDk_r6BY74U/mqdefault.jpg" alt="Bike Touring Czech Republic - DAY 1 - Františkovy Lázně & Cheb"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLf2IQVBwFMXP6xiCjao3YqoJRLd7ze0UV" title="Bike Touring Czech Republic - DAY 1 - Františkovy Lázně & Cheb">Bike Touring Czech Republic - DAY 1 - Františkovy Lázně & Cheb</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=28" title="see 28">28</a></td>
+	  <td>17</td>
+      <td><a target="_blank" href="youtube/?CategoryID=28" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLf2IQVBwFMXP6xiCjao3YqoJRLd7ze0UV" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>73</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLkK3NnOG6Qo70GSc-na9vS6L4XJd_kLI1" title="I am in Czech Republic"><img width="100px" src="https://i.ytimg.com/vi/CVMuqrAdQps/mqdefault.jpg" alt="I am in Czech Republic"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLkK3NnOG6Qo70GSc-na9vS6L4XJd_kLI1" title="I am in Czech Republic">I am in Czech Republic</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=28" title="see 28">28</a></td>
+	  <td>6</td>
+      <td><a target="_blank" href="youtube/?CategoryID=28" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLkK3NnOG6Qo70GSc-na9vS6L4XJd_kLI1" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>72</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLluBM6WZiWD_OC-3XR0NyFfIxWi_qFvD4" title="Eating Czech Food - What Czechs Eat"><img width="100px" src="https://i.ytimg.com/vi/S3DzXha5pWc/mqdefault.jpg" alt="Eating Czech Food - What Czechs Eat"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLluBM6WZiWD_OC-3XR0NyFfIxWi_qFvD4" title="Eating Czech Food - What Czechs Eat">Eating Czech Food - What Czechs Eat</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=20" title="see 20">20</a></td>
+	  <td>7</td>
+      <td><a target="_blank" href="youtube/?CategoryID=20" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLluBM6WZiWD_OC-3XR0NyFfIxWi_qFvD4" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>71</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL4E16670EF600D37F" title="Making Blueberry Pie-Raised Dough-Borůvkový Koláč-Kynuté Těsto"><img width="100px" src="https://i.ytimg.com/vi/IsnmGbUxv9M/mqdefault.jpg" alt="Making Blueberry Pie-Raised Dough-Borůvkový Koláč-Kynuté Těsto"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL4E16670EF600D37F" title="Making Blueberry Pie-Raised Dough-Borůvkový Koláč-Kynuté Těsto">Making Blueberry Pie-Raised Dough-Borůvkový Koláč-Kynuté Těsto</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=20" title="see 20">20</a></td>
+	  <td>17</td>
+      <td><a target="_blank" href="youtube/?CategoryID=20" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PL4E16670EF600D37F" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>70</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLPXxNwplOM5nKnD9BhKD6ILMHe6-Bdj2_" title="EATING CZECH FOOD - Goulash, Fried Cheese & Pilsner Beer in Prague"><img width="100px" src="https://i.ytimg.com/vi/hWQdbuHDi5c/mqdefault.jpg" alt="EATING CZECH FOOD - Goulash, Fried Cheese & Pilsner Beer in Prague"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLPXxNwplOM5nKnD9BhKD6ILMHe6-Bdj2_" title="EATING CZECH FOOD - Goulash, Fried Cheese & Pilsner Beer in Prague">EATING CZECH FOOD - Goulash, Fried Cheese & Pilsner Beer in Prague</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=20" title="see 20">20</a></td>
+	  <td>49</td>
+      <td><a target="_blank" href="youtube/?CategoryID=20" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLPXxNwplOM5nKnD9BhKD6ILMHe6-Bdj2_" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>69</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLo6WmFbBTUexTZLdXDodnpzkw7s3rwjPE" title="Recipe: Czech Linzer Cookies - Linecke kolacky"><img width="100px" src="https://i.ytimg.com/vi/TwIQZcep-YM/mqdefault.jpg" alt="Recipe: Czech Linzer Cookies - Linecke kolacky"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLo6WmFbBTUexTZLdXDodnpzkw7s3rwjPE" title="Recipe: Czech Linzer Cookies - Linecke kolacky">Recipe: Czech Linzer Cookies - Linecke kolacky</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=20" title="see 20">20</a></td>
+	  <td>18</td>
+      <td><a target="_blank" href="youtube/?CategoryID=20" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLo6WmFbBTUexTZLdXDodnpzkw7s3rwjPE" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>68</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL1WZNpyQkEBhv2Y7TbDEflrGpEBX7gAxf" title="Beef Goulash Recipe - Hovězí Guláš - Czech Cookbook"><img width="100px" src="https://i.ytimg.com/vi/s345cUBQhhk/mqdefault.jpg" alt="Beef Goulash Recipe - Hovězí Guláš - Czech Cookbook"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL1WZNpyQkEBhv2Y7TbDEflrGpEBX7gAxf" title="Beef Goulash Recipe - Hovězí Guláš - Czech Cookbook">Beef Goulash Recipe - Hovězí Guláš - Czech Cookbook</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=20" title="see 20">20</a></td>
+	  <td>3</td>
+      <td><a target="_blank" href="youtube/?CategoryID=20" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PL1WZNpyQkEBhv2Y7TbDEflrGpEBX7gAxf" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>66</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL0LQw6gRZ_xoDYuvIaeK2qxDFji7t_oJF" title="Ženy v pokušení"><img width="100px" src="https://i.ytimg.com/vi/1gbgiHwgy94/mqdefault.jpg" alt="Ženy v pokušení"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL0LQw6gRZ_xoDYuvIaeK2qxDFji7t_oJF" title="Ženy v pokušení">Ženy v pokušení</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=13" title="see 13">13</a></td>
+	  <td>34</td>
+      <td><a target="_blank" href="youtube/?CategoryID=13" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PL0LQw6gRZ_xoDYuvIaeK2qxDFji7t_oJF" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>64</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL2I1Gl32x39y8009FdLMmJ185NT12IWCr" title="my honor was my loyalty  (english subtitles)"><img width="100px" src="https://i.ytimg.com/vi/xww9C-CwZXE/mqdefault.jpg" alt="my honor was my loyalty  (english subtitles)"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL2I1Gl32x39y8009FdLMmJ185NT12IWCr" title="my honor was my loyalty  (english subtitles)">my honor was my loyalty  (english subtitles)</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=27" title="see 27">27</a></td>
+	  <td>50</td>
+      <td><a target="_blank" href="youtube/?CategoryID=27" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PL2I1Gl32x39y8009FdLMmJ185NT12IWCr" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>59</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLhlYrGnUbvePieASXcg_ryhVNViPXb-Mk" title="Learn German: 500 Basic German Phrases"><img width="100px" src="https://i.ytimg.com/vi/jCE4Njkm-q0/mqdefault.jpg" alt="Learn German: 500 Basic German Phrases"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLhlYrGnUbvePieASXcg_ryhVNViPXb-Mk" title="Learn German: 500 Basic German Phrases">Learn German: 500 Basic German Phrases</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=27" title="see 27">27</a></td>
+	  <td>37</td>
+      <td><a target="_blank" href="youtube/?CategoryID=27" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLhlYrGnUbvePieASXcg_ryhVNViPXb-Mk" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>58</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLWML1Sqx4sYnit1UXiISAeCCoI4-KSZNF" title="Learn Czech - Making Apologies - Czech in Three Minutes"><img width="100px" src="https://i.ytimg.com/vi/YodoXC7EkD8/mqdefault.jpg" alt="Learn Czech - Making Apologies - Czech in Three Minutes"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLWML1Sqx4sYnit1UXiISAeCCoI4-KSZNF" title="Learn Czech - Making Apologies - Czech in Three Minutes">Learn Czech - Making Apologies - Czech in Three Minutes</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=27" title="see 27">27</a></td>
+	  <td>20</td>
+      <td><a target="_blank" href="youtube/?CategoryID=27" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLWML1Sqx4sYnit1UXiISAeCCoI4-KSZNF" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>57</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL9344BA414B54D6BB" title="French - General Words and Phrases"><img width="100px" src="https://i.ytimg.com/vi/NBMqGvz3c4E/mqdefault.jpg" alt="French - General Words and Phrases"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL9344BA414B54D6BB" title="French - General Words and Phrases">French - General Words and Phrases</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=27" title="see 27">27</a></td>
+	  <td>13</td>
+      <td><a target="_blank" href="youtube/?CategoryID=27" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PL9344BA414B54D6BB" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>56</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLO1sOVPFwe8_i_z8dLgU2pNdq4XbTX-1g" title="Czech - Basic Conversation"><img width="100px" src="https://i.ytimg.com/vi/I0dFrXLVyPg/mqdefault.jpg" alt="Czech - Basic Conversation"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLO1sOVPFwe8_i_z8dLgU2pNdq4XbTX-1g" title="Czech - Basic Conversation">Czech - Basic Conversation</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=27" title="see 27">27</a></td>
+	  <td>0</td>
+      <td><a target="_blank" href="youtube/?CategoryID=27" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLO1sOVPFwe8_i_z8dLgU2pNdq4XbTX-1g" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>55</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLEB5C760D99E735DB" title="Czech Daily Readings#1"><img width="100px" src="https://i.ytimg.com/vi/JmCKzjAqlGg/mqdefault.jpg" alt="Czech Daily Readings#1"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLEB5C760D99E735DB" title="Czech Daily Readings#1">Czech Daily Readings#1</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=7" title="see 7">7</a></td>
+	  <td>23</td>
+      <td><a target="_blank" href="youtube/?CategoryID=7" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLEB5C760D99E735DB" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>54</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLSkBss8jM86ofeegTZh568_cZrFpPQRcF" title="Czech Reading Practice#1"><img width="100px" src="https://i.ytimg.com/vi/oAd_So6fCCU/mqdefault.jpg" alt="Czech Reading Practice#1"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLSkBss8jM86ofeegTZh568_cZrFpPQRcF" title="Czech Reading Practice#1">Czech Reading Practice#1</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=7" title="see 7">7</a></td>
+	  <td>20</td>
+      <td><a target="_blank" href="youtube/?CategoryID=7" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLSkBss8jM86ofeegTZh568_cZrFpPQRcF" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>53</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLV2UazSOxxuVWwQzyqdUd2SKY9JjHbM0f" title="Intermediate Czech Reading - Claiming a Lost Item at the Station"><img width="100px" src="https://i.ytimg.com/vi/n9l_MvnGzhs/mqdefault.jpg" alt="Intermediate Czech Reading - Claiming a Lost Item at the Station"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLV2UazSOxxuVWwQzyqdUd2SKY9JjHbM0f" title="Intermediate Czech Reading - Claiming a Lost Item at the Station">Intermediate Czech Reading - Claiming a Lost Item at the Station</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=7" title="see 7">7</a></td>
+	  <td>6</td>
+      <td><a target="_blank" href="youtube/?CategoryID=7" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLV2UazSOxxuVWwQzyqdUd2SKY9JjHbM0f" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>52</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLV2UazSOxxuXJoX397lYQPuBvq_wreOKs" title="Czech Reading for Absolute Beginners - Buying a Train Ticket"><img width="100px" src="https://i.ytimg.com/vi/7PQfLy3G54w/mqdefault.jpg" alt="Czech Reading for Absolute Beginners - Buying a Train Ticket"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLV2UazSOxxuXJoX397lYQPuBvq_wreOKs" title="Czech Reading for Absolute Beginners - Buying a Train Ticket">Czech Reading for Absolute Beginners - Buying a Train Ticket</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=7" title="see 7">7</a></td>
+	  <td>4</td>
+      <td><a target="_blank" href="youtube/?CategoryID=7" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLV2UazSOxxuXJoX397lYQPuBvq_wreOKs" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>50</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLGhkz7AXj8Lf6LzikJHOx9hTpDLOhmv65" title="EGO ft. Robert Burian - Žijeme len raz |OFFICIAL VIDEO|"><img width="100px" src="https://i.ytimg.com/vi/lYEi_WdCTDI/mqdefault.jpg" alt="EGO ft. Robert Burian - Žijeme len raz |OFFICIAL VIDEO|"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLGhkz7AXj8Lf6LzikJHOx9hTpDLOhmv65" title="EGO ft. Robert Burian - Žijeme len raz |OFFICIAL VIDEO|">EGO ft. Robert Burian - Žijeme len raz |OFFICIAL VIDEO|</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=12" title="see 12">12</a></td>
+	  <td>50</td>
+      <td><a target="_blank" href="youtube/?CategoryID=12" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLGhkz7AXj8Lf6LzikJHOx9hTpDLOhmv65" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>47</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLinB3MHWKsONlkMFtR3FEwfsK5hmiA8VN" title="AquaBabes 2017 - Tvoje múza"><img width="100px" src="https://i.ytimg.com/vi/CSHNw2Ujvdw/mqdefault.jpg" alt="AquaBabes 2017 - Tvoje múza"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLinB3MHWKsONlkMFtR3FEwfsK5hmiA8VN" title="AquaBabes 2017 - Tvoje múza">AquaBabes 2017 - Tvoje múza</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=12" title="see 12">12</a></td>
+	  <td>39</td>
+      <td><a target="_blank" href="youtube/?CategoryID=12" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLinB3MHWKsONlkMFtR3FEwfsK5hmiA8VN" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>46</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLD19B1FA21E1E7F27" title="Jiří Schelinger - Šípková růženka"><img width="100px" src="https://i.ytimg.com/vi/gpnYdXV4uxs/mqdefault.jpg" alt="Jiří Schelinger - Šípková růženka"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLD19B1FA21E1E7F27" title="Jiří Schelinger - Šípková růženka">Jiří Schelinger - Šípková růženka</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=12" title="see 12">12</a></td>
+	  <td>15</td>
+      <td><a target="_blank" href="youtube/?CategoryID=12" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLD19B1FA21E1E7F27" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>45</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLHGyJr6bx0nkO1XXnLyp9yggqHbahP2J-" title="Wohnout - Svaz českých bohémů (OFFICIAL VIDEOCLIP)"><img width="100px" src="https://i.ytimg.com/vi/EpJV6ZCo84c/mqdefault.jpg" alt="Wohnout - Svaz českých bohémů (OFFICIAL VIDEOCLIP)"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLHGyJr6bx0nkO1XXnLyp9yggqHbahP2J-" title="Wohnout - Svaz českých bohémů (OFFICIAL VIDEOCLIP)">Wohnout - Svaz českých bohémů (OFFICIAL VIDEOCLIP)</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=12" title="see 12">12</a></td>
+	  <td>46</td>
+      <td><a target="_blank" href="youtube/?CategoryID=12" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLHGyJr6bx0nkO1XXnLyp9yggqHbahP2J-" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>44</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL551CBD6557D864D9" title="The Travel Linguist - Czech 101"><img width="100px" src="https://i.ytimg.com/vi/HONOUsy-mhQ/mqdefault.jpg" alt="The Travel Linguist - Czech 101"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL551CBD6557D864D9" title="The Travel Linguist - Czech 101">The Travel Linguist - Czech 101</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=10" title="see 10">10</a></td>
+	  <td>1</td>
+      <td><a target="_blank" href="youtube/?CategoryID=10" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PL551CBD6557D864D9" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>43</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLP_J8Sj7jNrXfUng5HLHz0xdjJO4-P7rP" title="Czech Guys Czech Accent in English"><img width="100px" src="https://i.ytimg.com/vi/Bo6lxFRHTkA/mqdefault.jpg" alt="Czech Guys Czech Accent in English"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLP_J8Sj7jNrXfUng5HLHz0xdjJO4-P7rP" title="Czech Guys Czech Accent in English">Czech Guys Czech Accent in English</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=10" title="see 10">10</a></td>
+	  <td>4</td>
+      <td><a target="_blank" href="youtube/?CategoryID=10" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLP_J8Sj7jNrXfUng5HLHz0xdjJO4-P7rP" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>42</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLC-O5ckKxcZtzpFXAmtXrwHKhWfcIZ7sM" title="Shapes (Czech To English Translation)"><img width="100px" src="https://i.ytimg.com/vi/DHDB3S0FQoE/mqdefault.jpg" alt="Shapes (Czech To English Translation)"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLC-O5ckKxcZtzpFXAmtXrwHKhWfcIZ7sM" title="Shapes (Czech To English Translation)">Shapes (Czech To English Translation)</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=10" title="see 10">10</a></td>
+	  <td>28</td>
+      <td><a target="_blank" href="youtube/?CategoryID=10" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLC-O5ckKxcZtzpFXAmtXrwHKhWfcIZ7sM" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>41</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLj9poWTkrIOsy7Zl5j37zGNoNfFnBsa_o" title="The Travel Linguist - Czech 101"><img width="100px" src="https://i.ytimg.com/vi/HONOUsy-mhQ/mqdefault.jpg" alt="The Travel Linguist - Czech 101"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLj9poWTkrIOsy7Zl5j37zGNoNfFnBsa_o" title="The Travel Linguist - Czech 101">The Travel Linguist - Czech 101</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=10" title="see 10">10</a></td>
+	  <td>0</td>
+      <td><a target="_blank" href="youtube/?CategoryID=10" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLj9poWTkrIOsy7Zl5j37zGNoNfFnBsa_o" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>39</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLkSRNCXI73TcS9rnvsAK6jxONUPCaXill" title="Learning Czech - Introduction to Czech Basic Phrases"><img width="100px" src="https://i.ytimg.com/vi/twCkvwrKzVw/mqdefault.jpg" alt="Learning Czech - Introduction to Czech Basic Phrases"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLkSRNCXI73TcS9rnvsAK6jxONUPCaXill" title="Learning Czech - Introduction to Czech Basic Phrases">Learning Czech - Introduction to Czech Basic Phrases</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=10" title="see 10">10</a></td>
+	  <td>11</td>
+      <td><a target="_blank" href="youtube/?CategoryID=10" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLkSRNCXI73TcS9rnvsAK6jxONUPCaXill" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>38</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLDAnMZUdAMnPFekwSeZ3Keu9n4OdVxe1i" title="Běží liška k Táboru | Písničky pro děti"><img width="100px" src="https://i.ytimg.com/vi/norLLfD0KKI/mqdefault.jpg" alt="Běží liška k Táboru | Písničky pro děti"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLDAnMZUdAMnPFekwSeZ3Keu9n4OdVxe1i" title="Běží liška k Táboru | Písničky pro děti">Běží liška k Táboru | Písničky pro děti</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=14" title="see 14">14</a></td>
+	  <td>34</td>
+      <td><a target="_blank" href="youtube/?CategoryID=14" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLDAnMZUdAMnPFekwSeZ3Keu9n4OdVxe1i" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>37</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLvuhvVEgINmgl7wb3ghSlNv2_qcIMlYSW" title="Saxana — The Girl On A Broomstick"><img width="100px" src="https://i.ytimg.com/vi/Tkun3bE6n3I/mqdefault.jpg" alt="Saxana — The Girl On A Broomstick"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLvuhvVEgINmgl7wb3ghSlNv2_qcIMlYSW" title="Saxana — The Girl On A Broomstick">Saxana — The Girl On A Broomstick</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=14" title="see 14">14</a></td>
+	  <td>12</td>
+      <td><a target="_blank" href="youtube/?CategoryID=14" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLvuhvVEgINmgl7wb3ghSlNv2_qcIMlYSW" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>36</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLAEE1F90E98A44157" title="Vyletěla holubička"><img width="100px" src="https://i.ytimg.com/vi/rR7Zf5xd-T0/mqdefault.jpg" alt="Vyletěla holubička"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLAEE1F90E98A44157" title="Vyletěla holubička">Vyletěla holubička</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=14" title="see 14">14</a></td>
+	  <td>30</td>
+      <td><a target="_blank" href="youtube/?CategoryID=14" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLAEE1F90E98A44157" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>35</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL5rPOjQNrwOgAcKKZoKPlbFgdpZJ-_1EK" title="Holka modrooká"><img width="100px" src="https://i.ytimg.com/vi/vTOUuhAxR8k/mqdefault.jpg" alt="Holka modrooká"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL5rPOjQNrwOgAcKKZoKPlbFgdpZJ-_1EK" title="Holka modrooká">Holka modrooká</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=14" title="see 14">14</a></td>
+	  <td>8</td>
+      <td><a target="_blank" href="youtube/?CategoryID=14" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PL5rPOjQNrwOgAcKKZoKPlbFgdpZJ-_1EK" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>34</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLlBlltNtETtQRnoQVCJqFYChQdWQe6ZbH" title="Czech for kids DVD set - Children learning Czech language, čeština"><img width="100px" src="https://i.ytimg.com/vi/AX8fRRWTaFI/mqdefault.jpg" alt="Czech for kids DVD set - Children learning Czech language, čeština"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLlBlltNtETtQRnoQVCJqFYChQdWQe6ZbH" title="Czech for kids DVD set - Children learning Czech language, čeština">Czech for kids DVD set - Children learning Czech language, čeština</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=14" title="see 14">14</a></td>
+	  <td>3</td>
+      <td><a target="_blank" href="youtube/?CategoryID=14" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLlBlltNtETtQRnoQVCJqFYChQdWQe6ZbH" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>33</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLz9rkGaXdgtUh9D3e9S5TYphUl6AA1GoB" title="Písničky pro děti a nejmenší | Kočka leze dírou + 22 min."><img width="100px" src="https://i.ytimg.com/vi/hqukPkgqkv8/mqdefault.jpg" alt="Písničky pro děti a nejmenší | Kočka leze dírou + 22 min."></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLz9rkGaXdgtUh9D3e9S5TYphUl6AA1GoB" title="Písničky pro děti a nejmenší | Kočka leze dírou + 22 min.">Písničky pro děti a nejmenší | Kočka leze dírou + 22 min.</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=14" title="see 14">14</a></td>
+	  <td>10</td>
+      <td><a target="_blank" href="youtube/?CategoryID=14" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLz9rkGaXdgtUh9D3e9S5TYphUl6AA1GoB" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>32</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLdblumcCPoxasoDndUKXIijenxf5k7bFQ" title="Czech Vocabulary Lesson (Sound)"><img width="100px" src="https://i.ytimg.com/vi/SSj5gUkTMHc/mqdefault.jpg" alt="Czech Vocabulary Lesson (Sound)"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLdblumcCPoxasoDndUKXIijenxf5k7bFQ" title="Czech Vocabulary Lesson (Sound)">Czech Vocabulary Lesson (Sound)</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=6" title="see 6">6</a></td>
+	  <td>2</td>
+      <td><a target="_blank" href="youtube/?CategoryID=6" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLdblumcCPoxasoDndUKXIijenxf5k7bFQ" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>31</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLVzp4OTRskCobvaugHkSkHnIPpnmuBv8F" title="Learn Czech - 20 essential adjectives - lesson 36"><img width="100px" src="https://i.ytimg.com/vi/uL9lznnn3e0/mqdefault.jpg" alt="Learn Czech - 20 essential adjectives - lesson 36"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLVzp4OTRskCobvaugHkSkHnIPpnmuBv8F" title="Learn Czech - 20 essential adjectives - lesson 36">Learn Czech - 20 essential adjectives - lesson 36</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=6" title="see 6">6</a></td>
+	  <td>8</td>
+      <td><a target="_blank" href="youtube/?CategoryID=6" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLVzp4OTRskCobvaugHkSkHnIPpnmuBv8F" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>30</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLOS5zYdWTm85LlScoC-0vovNd9Ggm3GL7" title="The Seasons Of The Year (Czech To English Translation)"><img width="100px" src="https://i.ytimg.com/vi/sWoODSI8MiY/mqdefault.jpg" alt="The Seasons Of The Year (Czech To English Translation)"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLOS5zYdWTm85LlScoC-0vovNd9Ggm3GL7" title="The Seasons Of The Year (Czech To English Translation)">The Seasons Of The Year (Czech To English Translation)</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=6" title="see 6">6</a></td>
+	  <td>0</td>
+      <td><a target="_blank" href="youtube/?CategoryID=6" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLOS5zYdWTm85LlScoC-0vovNd9Ggm3GL7" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>29</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL1A4Oro6aZ6SGrPrVw_5thW1CMx6mrGSD" title="Learn Czech - Family Vocabulary - Lesson 31"><img width="100px" src="https://i.ytimg.com/vi/qb3srRKb6xw/mqdefault.jpg" alt="Learn Czech - Family Vocabulary - Lesson 31"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL1A4Oro6aZ6SGrPrVw_5thW1CMx6mrGSD" title="Learn Czech - Family Vocabulary - Lesson 31">Learn Czech - Family Vocabulary - Lesson 31</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=6" title="see 6">6</a></td>
+	  <td>6</td>
+      <td><a target="_blank" href="youtube/?CategoryID=6" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PL1A4Oro6aZ6SGrPrVw_5thW1CMx6mrGSD" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>28</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLdblumcCPoxbtOk6SBjDM34e09U7r4inc" title="Learn Czech Vocabulary with Pictures and Video - Top 20 Czech Verbs 3"><img width="100px" src="https://i.ytimg.com/vi/Fdk-GcIWvt0/mqdefault.jpg" alt="Learn Czech Vocabulary with Pictures and Video - Top 20 Czech Verbs 3"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLdblumcCPoxbtOk6SBjDM34e09U7r4inc" title="Learn Czech Vocabulary with Pictures and Video - Top 20 Czech Verbs 3">Learn Czech Vocabulary with Pictures and Video - Top 20 Czech Verbs 3</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=6" title="see 6">6</a></td>
+	  <td>4</td>
+      <td><a target="_blank" href="youtube/?CategoryID=6" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLdblumcCPoxbtOk6SBjDM34e09U7r4inc" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>27</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL511xKt6z5rQb9828SJLzLNwHPXhl1aRs" title="Basic czech alphabet"><img width="100px" src="https://i.ytimg.com/vi/QV8aekG92Ew/mqdefault.jpg" alt="Basic czech alphabet"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL511xKt6z5rQb9828SJLzLNwHPXhl1aRs" title="Basic czech alphabet">Basic czech alphabet</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=9" title="see 9">9</a></td>
+	  <td>5</td>
+      <td><a target="_blank" href="youtube/?CategoryID=9" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PL511xKt6z5rQb9828SJLzLNwHPXhl1aRs" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>26</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL3hBk5gv8Va1Eax1TMGJqMEPnGRFisTdN" title="Czech vocabulary words for kids - Vehicles Song"><img width="100px" src="https://i.ytimg.com/vi/gHOWunZG3MY/mqdefault.jpg" alt="Czech vocabulary words for kids - Vehicles Song"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL3hBk5gv8Va1Eax1TMGJqMEPnGRFisTdN" title="Czech vocabulary words for kids - Vehicles Song">Czech vocabulary words for kids - Vehicles Song</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=9" title="see 9">9</a></td>
+	  <td>3</td>
+      <td><a target="_blank" href="youtube/?CategoryID=9" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PL3hBk5gv8Va1Eax1TMGJqMEPnGRFisTdN" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>25</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLN6Oznd9k30BWGpMGkgFIHOBJYQhSVi_w" title="Learn Czech Easier Way"><img width="100px" src="https://i.ytimg.com/vi/CSTFDZB1t1s/mqdefault.jpg" alt="Learn Czech Easier Way"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLN6Oznd9k30BWGpMGkgFIHOBJYQhSVi_w" title="Learn Czech Easier Way">Learn Czech Easier Way</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=9" title="see 9">9</a></td>
+	  <td>16</td>
+      <td><a target="_blank" href="youtube/?CategoryID=9" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLN6Oznd9k30BWGpMGkgFIHOBJYQhSVi_w" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>24</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLagb7jP5b2_-R6e4wHzZxRVuNA6koS8vX" title="CZECH #1 - Czech alphabet - general phonemes & pronunciation"><img width="100px" src="https://i.ytimg.com/vi/Dot3LVAeABc/mqdefault.jpg" alt="CZECH #1 - Czech alphabet - general phonemes & pronunciation"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLagb7jP5b2_-R6e4wHzZxRVuNA6koS8vX" title="CZECH #1 - Czech alphabet - general phonemes & pronunciation">CZECH #1 - Czech alphabet - general phonemes & pronunciation</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=9" title="see 9">9</a></td>
+	  <td>4</td>
+      <td><a target="_blank" href="youtube/?CategoryID=9" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLagb7jP5b2_-R6e4wHzZxRVuNA6koS8vX" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>23</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL7bjqUW6006dvREDIcxyifz7JGFxtDkKN" title="Czech Pronunciation, Part I   Introduction & Letters That Sound the Same in Both Languages"><img width="100px" src="https://i.ytimg.com/vi/8mUJA1n2IeU/mqdefault.jpg" alt="Czech Pronunciation, Part I   Introduction & Letters That Sound the Same in Both Languages"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL7bjqUW6006dvREDIcxyifz7JGFxtDkKN" title="Czech Pronunciation, Part I   Introduction & Letters That Sound the Same in Both Languages">Czech Pronunciation, Part I   Introduction & Letters That Sound the Same in Both Languages</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=9" title="see 9">9</a></td>
+	  <td>5</td>
+      <td><a target="_blank" href="youtube/?CategoryID=9" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PL7bjqUW6006dvREDIcxyifz7JGFxtDkKN" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>22</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL1WBaFNy3mmvZB_lZ3hHzOA2GJfepa3SJ" title="Learn Czech Online - Introducing yourself + the verb to be"><img width="100px" src="https://i.ytimg.com/vi/uHLv-HZKAh8/mqdefault.jpg" alt="Learn Czech Online - Introducing yourself + the verb to be"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL1WBaFNy3mmvZB_lZ3hHzOA2GJfepa3SJ" title="Learn Czech Online - Introducing yourself + the verb to be">Learn Czech Online - Introducing yourself + the verb to be</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=5" title="see 5">5</a></td>
+	  <td>1</td>
+      <td><a target="_blank" href="youtube/?CategoryID=5" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PL1WBaFNy3mmvZB_lZ3hHzOA2GJfepa3SJ" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>21</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLfqEoBNvFTlNgqiTn-xSWo-T01lHbFIsM" title="Czech 101 - Dining - Level One"><img width="100px" src="https://i.ytimg.com/vi/QZClJc7Q9wg/mqdefault.jpg" alt="Czech 101 - Dining - Level One"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLfqEoBNvFTlNgqiTn-xSWo-T01lHbFIsM" title="Czech 101 - Dining - Level One">Czech 101 - Dining - Level One</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=5" title="see 5">5</a></td>
+	  <td>3</td>
+      <td><a target="_blank" href="youtube/?CategoryID=5" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLfqEoBNvFTlNgqiTn-xSWo-T01lHbFIsM" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>20</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLHrLIfmFg_D7tPjrSUxiTjR50GKcgtwsW" title="Czech 101 - Greetings - Level Two"><img width="100px" src="https://i.ytimg.com/vi/RsLPLiMuGuI/mqdefault.jpg" alt="Czech 101 - Greetings - Level Two"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLHrLIfmFg_D7tPjrSUxiTjR50GKcgtwsW" title="Czech 101 - Greetings - Level Two">Czech 101 - Greetings - Level Two</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=5" title="see 5">5</a></td>
+	  <td>29</td>
+      <td><a target="_blank" href="youtube/?CategoryID=5" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLHrLIfmFg_D7tPjrSUxiTjR50GKcgtwsW" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>19</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLo6WmFbBTUew6lpB775efqKL6aGPmHkwp" title="Czech 101 - Common Words & Phrases - Level One"><img width="100px" src="https://i.ytimg.com/vi/bY9cp7r2CZc/mqdefault.jpg" alt="Czech 101 - Common Words & Phrases - Level One"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLo6WmFbBTUew6lpB775efqKL6aGPmHkwp" title="Czech 101 - Common Words & Phrases - Level One">Czech 101 - Common Words & Phrases - Level One</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=5" title="see 5">5</a></td>
+	  <td>6</td>
+      <td><a target="_blank" href="youtube/?CategoryID=5" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLo6WmFbBTUew6lpB775efqKL6aGPmHkwp" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>18</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLV2UazSOxxuXRA2e9Frxx_Gh9sIrGBhw-" title="Learn Czech - How to Introduce Yourself in Czech - Czech in Three Minutes"><img width="100px" src="https://i.ytimg.com/vi/P0bkUujzqtc/mqdefault.jpg" alt="Learn Czech - How to Introduce Yourself in Czech - Czech in Three Minutes"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLV2UazSOxxuXRA2e9Frxx_Gh9sIrGBhw-" title="Learn Czech - How to Introduce Yourself in Czech - Czech in Three Minutes">Learn Czech - How to Introduce Yourself in Czech - Czech in Three Minutes</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=5" title="see 5">5</a></td>
+	  <td>4</td>
+      <td><a target="_blank" href="youtube/?CategoryID=5" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLV2UazSOxxuXRA2e9Frxx_Gh9sIrGBhw-" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>16</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLMtw3lejlbZM2xOEygdcPuov26jsLC0qq" title="Learn Czech - How to Introduce Yourself in Czech - Czech in Three Minutes"><img width="100px" src="https://i.ytimg.com/vi/P0bkUujzqtc/mqdefault.jpg" alt="Learn Czech - How to Introduce Yourself in Czech - Czech in Three Minutes"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLMtw3lejlbZM2xOEygdcPuov26jsLC0qq" title="Learn Czech - How to Introduce Yourself in Czech - Czech in Three Minutes">Learn Czech - How to Introduce Yourself in Czech - Czech in Three Minutes</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=4" title="see 4">4</a></td>
+	  <td>20</td>
+      <td><a target="_blank" href="youtube/?CategoryID=4" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLMtw3lejlbZM2xOEygdcPuov26jsLC0qq" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>15</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLQZLwHPDjeHShiU6-ZETky7Azin-xg5O-" title="Learn Czech Vocabulary with Pictures and Video - Talking About Your Daily Routine in Czech"><img width="100px" src="https://i.ytimg.com/vi/3kdAgc6r9hk/mqdefault.jpg" alt="Learn Czech Vocabulary with Pictures and Video - Talking About Your Daily Routine in Czech"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLQZLwHPDjeHShiU6-ZETky7Azin-xg5O-" title="Learn Czech Vocabulary with Pictures and Video - Talking About Your Daily Routine in Czech">Learn Czech Vocabulary with Pictures and Video - Talking About Your Daily Routine in Czech</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=4" title="see 4">4</a></td>
+	  <td>2</td>
+      <td><a target="_blank" href="youtube/?CategoryID=4" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLQZLwHPDjeHShiU6-ZETky7Azin-xg5O-" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>14</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL931KwMmN-4JKp-JvFbBrRlvs6w8Br7Nv" title="How to Enjoy Learning Czech"><img width="100px" src="https://i.ytimg.com/vi/Mj-nrUUoleM/mqdefault.jpg" alt="How to Enjoy Learning Czech"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL931KwMmN-4JKp-JvFbBrRlvs6w8Br7Nv" title="How to Enjoy Learning Czech">How to Enjoy Learning Czech</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=4" title="see 4">4</a></td>
+	  <td>4</td>
+      <td><a target="_blank" href="youtube/?CategoryID=4" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PL931KwMmN-4JKp-JvFbBrRlvs6w8Br7Nv" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>13</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL2Y43KTVvQWYcZXZT-yspYziwRvxeDuVq" title="Danish Listening Practice - At the Jewelry Store in Denmark"><img width="100px" src="https://i.ytimg.com/vi/GgqgpnpKB4o/mqdefault.jpg" alt="Danish Listening Practice - At the Jewelry Store in Denmark"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL2Y43KTVvQWYcZXZT-yspYziwRvxeDuVq" title="Danish Listening Practice - At the Jewelry Store in Denmark">Danish Listening Practice - At the Jewelry Store in Denmark</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=4" title="see 4">4</a></td>
+	  <td>18</td>
+      <td><a target="_blank" href="youtube/?CategoryID=4" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PL2Y43KTVvQWYcZXZT-yspYziwRvxeDuVq" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>10</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLfweaClUxZMAE9FNwDU-f22GSkqvfUYuA" title="Learn Czech - Greetings - Czech in Three Minutes"><img width="100px" src="https://i.ytimg.com/vi/HU4nYgFdVtA/mqdefault.jpg" alt="Learn Czech - Greetings - Czech in Three Minutes"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLfweaClUxZMAE9FNwDU-f22GSkqvfUYuA" title="Learn Czech - Greetings - Czech in Three Minutes">Learn Czech - Greetings - Czech in Three Minutes</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=3" title="see 3">3</a></td>
+	  <td>29</td>
+      <td><a target="_blank" href="youtube/?CategoryID=3" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLfweaClUxZMAE9FNwDU-f22GSkqvfUYuA" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>9</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLV2UazSOxxuU8Oht0avG1NF53Xn0AtEti" title="Czech Reading for Beginners - What is the Last Stop of this Train?"><img width="100px" src="https://i.ytimg.com/vi/wwau2iR3vto/mqdefault.jpg" alt="Czech Reading for Beginners - What is the Last Stop of this Train?"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLV2UazSOxxuU8Oht0avG1NF53Xn0AtEti" title="Czech Reading for Beginners - What is the Last Stop of this Train?">Czech Reading for Beginners - What is the Last Stop of this Train?</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=3" title="see 3">3</a></td>
+	  <td>5</td>
+      <td><a target="_blank" href="youtube/?CategoryID=3" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLV2UazSOxxuU8Oht0avG1NF53Xn0AtEti" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>8</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLV2UazSOxxuVipS-OUHIOMeBBe9k_2Ukk" title="Czech Listening Practice - At a Czech Bookstore"><img width="100px" src="https://i.ytimg.com/vi/MOi0VOBFK-Q/mqdefault.jpg" alt="Czech Listening Practice - At a Czech Bookstore"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLV2UazSOxxuVipS-OUHIOMeBBe9k_2Ukk" title="Czech Listening Practice - At a Czech Bookstore">Czech Listening Practice - At a Czech Bookstore</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=3" title="see 3">3</a></td>
+	  <td>0</td>
+      <td><a target="_blank" href="youtube/?CategoryID=3" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLV2UazSOxxuVipS-OUHIOMeBBe9k_2Ukk" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>7</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL9D938714CAE52403" title="Learn Czech Online - Introducing yourself + the verb to be"><img width="100px" src="https://i.ytimg.com/vi/uHLv-HZKAh8/mqdefault.jpg" alt="Learn Czech Online - Introducing yourself + the verb to be"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PL9D938714CAE52403" title="Learn Czech Online - Introducing yourself + the verb to be">Learn Czech Online - Introducing yourself + the verb to be</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=3" title="see 3">3</a></td>
+	  <td>45</td>
+      <td><a target="_blank" href="youtube/?CategoryID=3" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PL9D938714CAE52403" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>6</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLV2UazSOxxuVw4Tn9wxESfbbFCGr8DKhV" title="Czech Listening Practice - At the Jewelry Store in Czech Republic"><img width="100px" src="https://i.ytimg.com/vi/3K05yUa_tDA/mqdefault.jpg" alt="Czech Listening Practice - At the Jewelry Store in Czech Republic"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLV2UazSOxxuVw4Tn9wxESfbbFCGr8DKhV" title="Czech Listening Practice - At the Jewelry Store in Czech Republic">Czech Listening Practice - At the Jewelry Store in Czech Republic</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=3" title="see 3">3</a></td>
+	  <td>20</td>
+      <td><a target="_blank" href="youtube/?CategoryID=3" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLV2UazSOxxuVw4Tn9wxESfbbFCGr8DKhV" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>5</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLVBbsR7DDH0xO2fZ7iPulB29j3TyQHngT" title="Learn Czech - Basic Greetings - Lesson 1"><img width="100px" src="https://i.ytimg.com/vi/LjUTiNYk9uE/mqdefault.jpg" alt="Learn Czech - Basic Greetings - Lesson 1"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLVBbsR7DDH0xO2fZ7iPulB29j3TyQHngT" title="Learn Czech - Basic Greetings - Lesson 1">Learn Czech - Basic Greetings - Lesson 1</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=3" title="see 3">3</a></td>
+	  <td>19</td>
+      <td><a target="_blank" href="youtube/?CategoryID=3" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLVBbsR7DDH0xO2fZ7iPulB29j3TyQHngT" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>4</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLAB6D13C1D1A83458" title="Come to the Czech Republic and experience your own story! (USA)"><img width="100px" src="https://i.ytimg.com/vi/ne-HTfgMsKQ/mqdefault.jpg" alt="Come to the Czech Republic and experience your own story! (USA)"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLAB6D13C1D1A83458" title="Come to the Czech Republic and experience your own story! (USA)">Come to the Czech Republic and experience your own story! (USA)</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=31" title="see 31">31</a></td>
+	  <td>23</td>
+      <td><a target="_blank" href="youtube/?CategoryID=31" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLAB6D13C1D1A83458" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>3</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLWQJHx_HEd-NV7jrQOaKpsLv1xykSehWZ" title="JE KRTEČEK ILUMINÁT? 15+"><img width="100px" src="https://i.ytimg.com/vi/gTk3AA1M6mw/mqdefault.jpg" alt="JE KRTEČEK ILUMINÁT? 15+"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLWQJHx_HEd-NV7jrQOaKpsLv1xykSehWZ" title="JE KRTEČEK ILUMINÁT? 15+">JE KRTEČEK ILUMINÁT? 15+</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=31" title="see 31">31</a></td>
+	  <td>7</td>
+      <td><a target="_blank" href="youtube/?CategoryID=31" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLWQJHx_HEd-NV7jrQOaKpsLv1xykSehWZ" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>2</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLBOw3Svb4PuXYukixE9CbCZuGsOtp_aad" title="Toy Story 2 (Toy Story 2: Příběh hraček) - When She Loved Me (Czech)"><img width="100px" src="https://i.ytimg.com/vi/N9c7gWjILbA/mqdefault.jpg" alt="Toy Story 2 (Toy Story 2: Příběh hraček) - When She Loved Me (Czech)"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLBOw3Svb4PuXYukixE9CbCZuGsOtp_aad" title="Toy Story 2 (Toy Story 2: Příběh hraček) - When She Loved Me (Czech)">Toy Story 2 (Toy Story 2: Příběh hraček) - When She Loved Me (Czech)</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=31" title="see 31">31</a></td>
+	  <td>4</td>
+      <td><a target="_blank" href="youtube/?CategoryID=31" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLBOw3Svb4PuXYukixE9CbCZuGsOtp_aad" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>1</td>
+      <td><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLBOw3Svb4PuWeF-Zt7fg16skOTZHG0x6D" title="Toy Story (Příběh hraček) - Youve Got a Friend in Me (Máš ve mě přítele) (Czech) HD"><img width="100px" src="https://i.ytimg.com/vi/4DEPJpr1SZA/mqdefault.jpg" alt="Toy Story (Příběh hraček) - Youve Got a Friend in Me (Máš ve mě přítele) (Czech) HD"></a></td>
+      <td><b>List :</b><a href="?c=videoDetail&a=getByGetFromListWithView&k=PLBOw3Svb4PuWeF-Zt7fg16skOTZHG0x6D" title="Toy Story (Příběh hraček) - Youve Got a Friend in Me (Máš ve mě přítele) (Czech) HD">Toy Story (Příběh hraček) - Youve Got a Friend in Me (Máš ve mě přítele) (Czech) HD</a></td>
+      <td><a href="?c=listDetail&a=getByCategoryIDWithCountWithView&k=31" title="see 31">31</a></td>
+	  <td>3</td>
+      <td><a target="_blank" href="youtube/?CategoryID=31" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="?c=listDetail&a=removeById&k=PLBOw3Svb4PuWeF-Zt7fg16skOTZHG0x6D" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   </tbody>
+
+</table>
+</div>
+</body></html>
